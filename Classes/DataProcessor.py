@@ -78,8 +78,8 @@ class NewsSentimentAnalysis:
         news_headline = news.get_params()['headline']
         news_content = news.get_params()['content']
         sen_model = SentenceSentimentAnalysis()
-        news_headline_sentiment = sen_model.process(news_headline, sentiment_model)
-        news_content_sentiment = sen_model.process(news_content, sentiment_model)
+        news_headline_sentiment = sen_model.process(news_headline, sen_model)
+        news_content_sentiment = sen_model.process(news_content, sen_model)
         news.set_sentiment_analyzed(True)
         news.set_sentiment({'headline_sentiment': news_headline_sentiment, 'content_sentiment': news_content_sentiment})
 
