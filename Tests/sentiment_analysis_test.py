@@ -1,4 +1,4 @@
-from Classes.DataProcessor import Tokenizer, NewsTokenizer, NewsSentimentAnalysis, SentenceSentimentAnalysis, Counter
+from Classes.DataProcessor import Tokenizer, SentenceSentimentAnalysis
 from Classes.Component import News
 test_sentence = 'This is a test sentence; SPY is great'
 

@@ -6,6 +6,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize
 from Classes.SentimentModel.McdonaldModel import McdonaldModel
+from collections import Counter as CollectionsCounter
 
 # Ensure required resources are downloaded
 nltk.download('punkt')
@@ -87,7 +88,7 @@ class SentenceSentimentAnalysis:
 
     def __init__(self):
         self.sentiment_model = None
-    def process(self, sentence: Optional[str] = None,sentence_tokenized: Optional[List[str]] = None,
+    def process(self, sentence: Optional[str] = None, sentence_tokenized: Optional[List[str]] = None,
                 sentiment_method: str = 'mcdonald'):
         """
         This function should analyze the sentiment of the sentence. That is, counting
@@ -122,7 +123,8 @@ class Counter:
         :param tokens: list[str]: e.g. ['test', 'sentence', 'sentence', 'SPY', 'great']
         :return: dict , e.g. {'test': 1, 'sentence': 2, 'SPY': 1, 'great': 1}
         """
-        pass
+        return dict(CollectionsCounter(tokens))
+
 
     @classmethod
     def run_list_of_tokens(cls, list_of_token: list[str]) -> dict:
@@ -131,7 +133,8 @@ class Counter:
         :param list_of_token: list[list[str]]: e.g. [['test', 'sentence'], ['sentence', 'SPY'], ['SPY', 'great']]
         :return: List[dict] , e.g. [{'test': 1, 'sentence': 1}, {'sentence': 1, 'SPY': 1}, {'SPY': 1, 'great': 1}]
         """
-        pass
+        return [dict(CollectionsCounter(tokens)) for tokens in list_of_token]
+
 
 class SentenceSpliter:
     def process(self, text: str) -> List[str]:
