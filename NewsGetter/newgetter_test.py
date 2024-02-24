@@ -1,9 +1,9 @@
 import time
 from typing import List, Optional
 import requests
+#私人API，不可以publish
 
-PUBLIC_KEY = 'PKA6TNIEWKQ5E2PLEI7Q'
-PRIVATE_KEY = 'UFefPAIEx6Y1omgv4ymBUN6tGLnbzcVL2Jm5gARZ'
+
 
 import requests
 
