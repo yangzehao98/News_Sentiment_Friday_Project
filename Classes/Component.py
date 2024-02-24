@@ -41,3 +41,13 @@ class News:
     def set_sentiment(self, param):
         self.sentiment = self.sentiment.update(param)
 
+    def to_dict(self):
+        # Method to convert the news parameters to dictionary (this is easily JSON serializable)
+        return {
+            'params': self.params,
+            'sentiment': self.sentiment,
+            'count_result': self.count_result,
+            'is_tokenized': self._is_tokenized,
+            'is_sentiment_analyzed': self._is_sentiment_analyzed
+        }
+
