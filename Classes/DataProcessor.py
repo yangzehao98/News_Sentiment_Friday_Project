@@ -1,7 +1,15 @@
 from typing import Optional, List
 
 from Classes.Component import News
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 
+# Ensure required resources are downloaded
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
 
 class Tokenizer:
 
@@ -9,7 +17,12 @@ class Tokenizer:
         self.stop_words = stop_words
         self.lemmatize = lemmatize
         self._tokenizer = None # sklearn tokenizer if possible
-        pass
+        if stop_words == 'english':
+            self.stop_words = set(stopwords.words('english'))
+        else:
+            self.stop_words = set()
+
+        self.lemmatizer = WordNetLemmatizer() if lemmatize else None
 
     def transform(self, sentence: str) -> list[str]:
         """
@@ -19,7 +32,17 @@ class Tokenizer:
         :return: list[str]
         e.g. "This is a test sentence; SPY is great" -> ['test', 'sentence', 'SPY', 'great']
         """
-        pass
+        # Tokenize the sentence
+        tokens = word_tokenize(sentence)
+
+        # Remove stop words and punctuation
+        tokens = [token for token in tokens if token.isalpha() and token.lower() not in self.stop_words]
+
+        # Lemmatize the words if lemmatization is enabled
+        if self.lemmatize:
+            tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+
+        return tokens
 
 
 
