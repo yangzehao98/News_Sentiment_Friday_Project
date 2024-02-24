@@ -1,5 +1,5 @@
 from typing import List
-from SingletonSentimentModel import SingletonSentimentModel
+from Classes.SentimentModel.SingletonSentimentModel import SingletonSentimentModel
 import pandas as pd
 
 # Path: C:\Users\wzy\Documents\News_Sentiment_Friday_Project\Data
