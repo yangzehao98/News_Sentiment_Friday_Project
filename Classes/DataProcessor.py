@@ -97,8 +97,7 @@ class SentenceSentimentAnalysis:
         :return: dict: {'neg': 0.0, 'neu': 0.238, 'pos': 0.762}
         """
         pass
-
-
+class SentenceSentimentAnalysis:
 
 class Counter:
     @classmethod
