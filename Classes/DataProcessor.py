@@ -100,6 +100,7 @@ class SentenceSentimentAnalysis:
         :param sentiment_model: sentiment model to use - just use McDonald for now
         :return: dict: {'neg': 0.0, 'neu': 0.238, 'pos': 0.762}
         """
+
         if self.sentiment_model is None:
             if sentiment_method == 'mcdonald':
                 self.sentiment_model = McdonaldModel()
@@ -110,10 +111,8 @@ class SentenceSentimentAnalysis:
                 self.sentiment_model = McdonaldModel()
             else:
                 raise ValueError('Sentiment method not supported')
-
-        # TODO:  self.sentimen_model process the sentence and return the sentiment
-
-        pass
+        sentiment = self.sentiment_model.process(sentence_tokenized)
+        return sentiment
 
 class Counter:
     @classmethod

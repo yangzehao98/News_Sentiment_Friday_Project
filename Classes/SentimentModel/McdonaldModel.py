@@ -28,6 +28,6 @@ class McdonaldModel(metaclass=SingletonSentimentModel):
         # Here you might want to normalize or convert counts to probabilities
         # For simplicity, let's assume we just return the raw counts
         return sentiment_counts
-        pass
+        #pass
 
 
