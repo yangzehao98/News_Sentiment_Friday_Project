@@ -6,6 +6,8 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
+from Classes.SentimentModel.McdonaldModel import McdonaldModel
+
 # Ensure required resources are downloaded
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -83,8 +85,11 @@ class NewsSentimentAnalysis:
 
 
 class SentenceSentimentAnalysis:
+
+    def __init__(self):
+        self.sentiment_model = None
     def process(self, sentence: Optional[str] = None,sentence_tokenized: Optional[List[str]] = None,
-                sentiment_model: str = 'mcdonald'):
+                sentiment_method: str = 'mcdonald'):
         """
         This function should analyze the sentiment of the sentence. That is, counting
         the number of positive, negative and neutral words in the sentence within the McDonald's dictionary.
@@ -96,8 +101,20 @@ class SentenceSentimentAnalysis:
         :param sentiment_model: sentiment model to use - just use McDonald for now
         :return: dict: {'neg': 0.0, 'neu': 0.238, 'pos': 0.762}
         """
+        if self.sentiment_model is None:
+            if sentiment_method == 'mcdonald':
+                self.sentiment_model = McdonaldModel()
+            else:
+                raise ValueError('Sentiment method not supported')
+        if sentiment_method!=self.sentiment_model.model:
+            if sentiment_method == 'mcdonald':
+                self.sentiment_model = McdonaldModel()
+            else:
+                raise ValueError('Sentiment method not supported')
+
+        # TODO:  self.sentimen_model process the sentence and return the sentiment
+
         pass
-class SentenceSentimentAnalysis:
 
 class Counter:
     @classmethod
