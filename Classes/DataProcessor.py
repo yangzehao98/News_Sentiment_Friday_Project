@@ -21,13 +21,6 @@ class Tokenizer:
         """
         pass
 
-    def process(self, sentence: str):
-        """
-        Each sentence should be lemmaized and stop words removed. Then the sentence should be tokenized.
-        :param sentence: str
-        :return: list[str]
-        """
-        pass
 
 
 class NewsTokenizer:
@@ -69,7 +62,7 @@ class NewsSentimentAnalysis:
 
 
 class SentenceSentimentAnalysis:
-    def process(self, sentence: Optional[str],sentence_tokenized: Optional[List[str]],
+    def process(self, sentence: Optional[str] = None,sentence_tokenized: Optional[List[str]] = None,
                 sentiment_model: str = 'mcdonald'):
         """
         This function should analyze the sentiment of the sentence. That is, counting

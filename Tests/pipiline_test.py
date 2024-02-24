@@ -14,7 +14,6 @@ test_sentence_tokenized = tokenizer.transform(test_sentence)
 
 
 news_tokenizer = NewsTokenizer(stop_words = 'english', lemmatize = True)
-tokenizer.process(test_sentence)
 test_news_params = test_news.get_params()
 # test_news_params should be like = {'headline': ['test', 'headline'], 'content': ['test', 'content', 'good', 'content']}
 
