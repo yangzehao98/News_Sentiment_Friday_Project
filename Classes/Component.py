@@ -1,6 +1,3 @@
-from Classes.DataProcessor import Counter
-
-
 class News:
     def __init__(self, params=None):
         self.params = params
@@ -11,6 +8,7 @@ class News:
         self._is_sentiment_analyzed = False
 
     def run_counter(self):
+        from Classes.DataProcessor import Counter
         """
         This function should run the counter. The counter should be able to run after tokenization.
         """
