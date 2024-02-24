@@ -41,9 +41,7 @@ class Tokenizer:
         # Lemmatize the words if lemmatization is enabled
         if self.lemmatize:
             tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
-
         return tokens
-
 
 
 class NewsTokenizer:
