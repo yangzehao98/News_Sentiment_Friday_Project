@@ -21,7 +21,7 @@ test_news_params = test_news.get_params()
 # Sentiment Analysis
 sentiment_processor = SentenceSentimentAnalysis()
 # test_sentence_sentiment_vader = sentiment_processor.process(sentence = test_sentence, sentiment_model = 'vader')
-test_sentence_sentiment_mcdonald = sentiment_processor.process(tokenized_sentence = test_sentence_tokenized, sentiment_model = 'mcdonald')
+test_sentence_sentiment_mcdonald = sentiment_processor.process(tokenized_sentence = test_sentence, sentiment_model = 'mcdonald')
 # test_sentence_sentiment_xxx should be like = {'neg': 0.0, 'neu': 0.238, 'pos': 0.762}
 
 news_sentiment_processor = NewsSentimentAnalysis()
