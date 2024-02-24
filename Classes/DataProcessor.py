@@ -4,7 +4,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-
+from nltk.tokenize import sent_tokenize
 from Classes.SentimentModel.McdonaldModel import McdonaldModel
 
 # Ensure required resources are downloaded
@@ -139,5 +139,7 @@ class SentenceSpliter:
         This function should split the text into sentences.
         :param text: str
         :return: List[str]
+
         """
-        pass
+        sentences = sent_tokenize(text)
+        return sentences
