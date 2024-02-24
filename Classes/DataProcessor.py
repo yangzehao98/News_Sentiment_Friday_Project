@@ -59,8 +59,8 @@ class NewsTokenizer:
         """
         news_headline = news.get_params()['headline']
         news_content = news.get_params()['content']
-        news_headline_tokenized = self.tokenizer.process(news_headline)
-        news_content_tokenized = self.tokenizer.process(news_content)
+        news_headline_tokenized = self.tokenizer.transform(news_headline)
+        news_content_tokenized = self.tokenizer.transform(news_content)
         news.set_tokenized(True)
         news.set_params({'headline_tokenized': news_headline_tokenized, 'content_tokenized': news_content_tokenized})
 
