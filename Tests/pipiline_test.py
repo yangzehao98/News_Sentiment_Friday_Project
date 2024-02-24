@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from Classes.DataPreprocessing import Tokenizer, NewsTokenizer, NewsSentimentAnalysis, SentenceSentimentAnalysis, Counter
-from Classes.Element import News
+from Classes.DataProcessor import Tokenizer, NewsTokenizer, NewsSentimentAnalysis, SentenceSentimentAnalysis, Counter
+from Classes.Component import News
 
 test_news_data = {'headline': 'This is a test headline', 'content': 'This is a test content; it is a very good content'}
 test_news = News(params = test_news_data)
