@@ -1,5 +1,4 @@
 from typing import Optional, List
-
 from Classes.Component import News
 import nltk
 from nltk.tokenize import word_tokenize
