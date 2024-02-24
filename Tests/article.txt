@@ -1,0 +1,49 @@
+For a lesson in the perils of being a skeptic on Wall Street when everyone else is a buyer, consider Rob Arnott, who made a sensible case five months ago that Nvidia Corp. had become a bubble.
+
+“A textbook story of a Big Market Delusion” is how the venerable founder of Research Affiliates called it, citing extreme valuations after the shares quadrupled in just a year.
+
+Since his September warning, however, the ‘bubble’ has gotten around $800 billion bigger — and the greatest risk right now is getting left behind in its wake.
+
+“Never short-sell bubble stocks when they’re on a roll,” Arnott said this week. “But that doesn’t mean you have to own them.”
+
+
+
+Listen • 16m14
+Big Take: Wall Street’s Wild Fantasies About AI Confront Reality (Podcast)
+
+Wall Street isn’t deaf to the risks that gather when just a handful of high-valuation stocks dominate the market leader board, and Arnott’s view could ring true eventually. Yet after the world’s most valuable chipmaker smashed expectations with its blowout report Wednesday, the AI party is one nobody can afford to miss.
+
+Short interest is nearly nonexistent among tech behemoths. Analyst price targets are surging. Positioning from hedge funds to retail traders is getting more aggressive.
+
+“Right now, there’s no bear case,” said Alec Young, chief investment strategist at data platform Mapsignals. “You don’t get a move like this in a company this big if the bears have a leg to stand on.”
+
+Bearish Bets on Tech Behemoths Are Nowhere to be Found
+Short interest has tumbled among the seven big names
+
+S3, JPMorgan
+For active managers, the pressure is getting more intense by the day to ride the upward momentum across tech-powered indexes like the S&P 500 and Nasdaq 100, both of which just rose for the 15th time in 17 weeks. In turn, the Nasdaq 100’s price-earnings ratio climbed above 30 times and its multiple to sales reached 5, figures with few precedents outside the late 1990s dot-com craze and its aftermath.
+
+Owing both to the pace of earnings gains and the futility of betting against them, the Magnificent 7’s meteoric rally hasn’t been accompanied by any increase in bearish bets. Short interest has tumbled to just 1% of the group’s outstanding shares, hovering around the lowest level since at least 2015, according to estimates from JPMorgan Chase & Co. strategist Nikolaos Panigirtzoglou. Thursday’s 16% surge in Nvidia rung up about $3 billion in paper losses for those still holding bearish wagers, according to an analysis by S3 Partners LLC.
+
+Among hedge funds, the latest 13F reports revealed another increase in the share of ownership of the group. Retail traders are also driving the action, with demand for bullish options reminiscent of the pandemic-era trading boom.
+
+Yet even amid a record-breaking rally, Nvidia has seen its valuation narrow since the middle of 2023 thanks to its earnings growth.
+
+“It definitely was the most important stock on earth,” said Goldman Sachs Group Inc. tactical specialist Scott Rubner, speaking of Nvidia. “These market cap gains have brought back animal spirits to the retail traders with activity on the message boards and call options at the highest level since March 2020.”
+
+Nvidia Bulls Cheer Future Growth
+Nvidia's reported and estimated annual revenue per fiscal year
+
+Source: Bloomberg
+Gray bars show full-year revenue estimates
+The chipmaker reported a 486% year-over-year gain in earnings per share excluding certain items in its fiscal fourth quarter. The company also said it expects first quarter revenue of about $24 billion, handily beating analyst estimates.
+
+In turn, bulls rushed to boost their price targets — the average is now about $863, implying a more than 9% upside, according to data compiled by Bloomberg. At the top end, Rosenblatt Securities boosted its target to a Street-high $1,400 from $1,100, more than 75% higher than were shares currently trade.
+
+“I’m actively looking for ways where Nvidia could go wrong and I’m having difficulty finding any real hole in the story,” said Shana Sissel, CEO at Banrion Capital Management LLC, who has been holding positions in Nvidia since 2017. “I wish I bought some at $650.”
+
+While Nvidia boosted major indexes, the gains were lavished in a select handful of equities yet again. Less than 70% of stocks on the New York Stock Exchange advanced, while S&P 500 cored a 1.7% weekly gain. That’s bad news for those who have been betting on a broadening of the rally soon enough.
+
+Ken Mahoney, CEO of Mahoney Asset Management, is not worried about bloated valuations, but still cut exposure to the Nvidia to cash out on some of his gains.
+
+“Just to be prudent, we took about 20% off the table,” Mahoney said. “We also know that if in the days and weeks ahead if there’s a slowdown or the stock comes back a little bit, we will have some money to redeploy.”
