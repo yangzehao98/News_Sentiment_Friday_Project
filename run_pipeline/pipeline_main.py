@@ -27,6 +27,8 @@ df_recrods_test = df.to_dict('records')
 # Initialize an empty list to hold the news objects
 news_objects_list = []
 
+attribute_records = []
+
 # Iterate over each record and create a News object
 for record in df_recrods_test:
     # Initialize the News object with the record (dictionary)
@@ -71,18 +73,28 @@ for index, news in enumerate(news_objects_list):
     news_tokenized = news_tokenizer.process(news)
     news_sentiment_processor.process(news, sentiment_method='mcdonald')
     total_sentiment_counts = news.get_total_sentiment_counts()
-    prevailing_sentiment = McdonaldModel.calculate_positive_sentiment(total_sentiment_counts)
+    # total_count = total_sentiment_counts['neg'] + total_sentiment_counts['neu'] + total_sentiment_counts['pos']
+    # pos_percent = total_sentiment_counts['pos'] / total_count
+    # neg_percent = total_sentiment_counts['neg'] / total_count
+    # neu_percent = total_sentiment_counts['neu'] / total_count
+    prevailing_sentiment = max(total_sentiment_counts, key=total_sentiment_counts.get)
+    if prevailing_sentiment == 'pos':
+        prevailing_sentiment = 1
+    elif prevailing_sentiment == 'neg':
+        prevailing_sentiment = -1
+    else:
+        prevailing_sentiment = 0
 
     # Attribute6: current sentiment
-    total_count = total_sentiment_counts['neg'] + total_sentiment_counts['neu'] + total_sentiment_counts['pos']
-    pos_percent = total_sentiment_counts['pos'] / total_count
-    neg_percent = total_sentiment_counts['neg'] / total_count
-    neu_percent = total_sentiment_counts['neu'] / total_count
+
+    current_sentiment = McdonaldModel.calculate_positive_sentiment(total_sentiment_counts)
 
     # Attribute7: Location of 1st mention
     sentence_spliter = SentenceSpliter()
     sentences = sentence_spliter.process(content)
     lofm = Counter.first_sentence_word_appearance(sentences=sentences, words=company_name_list)
+    if lofm:
+        lofm = 0
 
     # Attribute8: Total Sentence Number
     total_sentence_number = len(sentences)
@@ -136,13 +148,13 @@ for index, news in enumerate(news_objects_list):
     image = news.get_params()['images']
     meta_data = {'index': index, 'url': url, 'summary': summary, 'image': image}
 
-    attribute_record = {'attribute0': {'time':date_str, 'symbol': symbol},
+    attribute_record = {'attribute0': date_str,
                         'attribute1': news_type,
                         'attribute2': item_genre,
                         'attribute3': headline,
                         'attribute4': relevance,
                         'attribute5': prevailing_sentiment,
-                        'attribute6': {'positive': pos_percent, 'negative': neg_percent, 'neutral': neu_percent},
+                        'attribute6': current_sentiment,
                         'attribute7': lofm,
                         'attribute8': total_sentence_number,
                         'attribute9': other_companies_num,
@@ -155,9 +167,13 @@ for index, news in enumerate(news_objects_list):
                         'attribute16': topic_code,
                         'attribute17': other_companies,
                         'attribute18': meta_data}
+    attribute_records.append(attribute_record)
 
-    append_dict_to_file(attribute_record, 'news_attributes_test.json')
-    del news
+csv_file = pd.DataFrame.from_records(attribute_records)
+
+csv_file.to_csv('news_attributes.csv')
+    # append_dict_to_file(attribute_record, 'news_attributes.json')
+    # del news
 
 
 
