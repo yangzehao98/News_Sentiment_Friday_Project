@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class News:
     def __init__(self, params=None):
         self.params = params
@@ -6,6 +9,7 @@ class News:
         self.count_result = None
         self._is_tokenized = False
         self._is_sentiment_analyzed = False
+        self.date = None
 
 
     def run_counter(self):
@@ -64,10 +68,21 @@ class News:
             'is_sentiment_analyzed': self._is_sentiment_analyzed
         }
     '''
+
+    def get_total_sentiment_counts(self):
+        return self.sentiment.get('total_sentiment_counts', None)
+
     def __str__(self):
         return f'News Object: {self.params}'
 
     def __repr__(self):
         return f'News Object: {self.params["headline"]}'
+
+    def set_date(self, date: datetime):
+        self.date = date
+
+    def get_date(self):
+        return self.date
+
 
 

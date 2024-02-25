@@ -7,7 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize
 from Classes.SentimentModel.McdonaldModel import McdonaldModel
 from collections import Counter as CollectionsCounter
-
+import json
 # Ensure required resources are downloaded
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -82,6 +82,10 @@ class NewsSentimentAnalysis:
         news_content_sentiment = sen_model.process(sentence_tokenized = content_tokenized, sentiment_method = sentiment_method)
         news.set_sentiment_analyzed(True)
         news.set_sentiment({'headline_sentiment': news_headline_sentiment, 'content_sentiment': news_content_sentiment})
+        total_sentiment = {'neg': news_headline_sentiment['neg'] + news_content_sentiment['neg'],
+                             'neu': news_headline_sentiment['neu'] + news_content_sentiment['neu'],
+                            'pos': news_headline_sentiment['pos'] + news_content_sentiment['pos']}
+        news.set_sentiment({'total_sentiment_counts': total_sentiment})
 
 
 class SentenceSentimentAnalysis:
@@ -112,7 +116,7 @@ class SentenceSentimentAnalysis:
                 self.sentiment_model = McdonaldModel()
             else:
                 raise ValueError('Sentiment method not supported')
-        sentiment = self.sentiment_model.process(sentence_tokenized)
+        sentiment = self.sentiment_model.process_tokenized_sentence(sentence_tokenized)
         return sentiment
 
 class Counter:
@@ -127,13 +131,34 @@ class Counter:
 
 
     @classmethod
-    def run_list_of_tokens(cls, list_of_token: list[str]) -> dict:
+    def run_list_of_tokens(cls, list_of_token: list[str]) -> [dict]:
         """
         Count the token frequency and return the result as a dictionary.
         :param list_of_token: list[list[str]]: e.g. [['test', 'sentence'], ['sentence', 'SPY'], ['SPY', 'great']]
         :return: List[dict] , e.g. [{'test': 1, 'sentence': 1}, {'sentence': 1, 'SPY': 1}, {'SPY': 1, 'great': 1}]
         """
         return [dict(CollectionsCounter(tokens)) for tokens in list_of_token]
+
+    @classmethod
+    def first_sentence_word_appearance(cls, sentences: list[str], words: List[str]) -> Optional[int]:
+        for index, sentence in enumerate(sentences):
+            if any(word in sentence for word in words):
+                return index
+        return None
+
+    @classmethod
+    def get_total_news_count_during_period(cls, news_list: List[News], start_date: str,
+                                           end_date: str, return_news: bool = False) -> [int, Optional[List[News]]]:
+        count = 0
+        news_to_return = []
+        for news in news_list:
+            if start_date <= news.get_date() <= end_date:
+                news_to_return.append(news)
+                count += 1
+        if return_news:
+            return count, news_to_return
+        return count
+
 
 
 class SentenceSpliter:
@@ -146,3 +171,8 @@ class SentenceSpliter:
         """
         sentences = sent_tokenize(text)
         return sentences
+
+def append_dict_to_file(dict_data: dict, file_path: str):
+    with open(file_path, 'a') as file:  # Open file in append mode
+        json.dump(dict_data, file)  # Dump dictionary to file
+        file.write('\n')  # Write a newline character after the dictionary for readability

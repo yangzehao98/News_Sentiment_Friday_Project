@@ -17,12 +17,12 @@ company_name_list = ['Coca-Cola', 'Coca Cola', 'Coke', 'KO',
                      'Coke Company', 'COKE']
 
 # Step 1: Read the JSON file
-with open('news_data.json', 'r') as file:
+with open('../Data/news_data.json', 'r') as file:
     data = json.load(file)
 
 # Step 2: Convert the list of JSON objects to a DataFrame
 df = pd.DataFrame.from_dict(data)
-df_recrods_test = df.to_dict('records')[0:5]
+df_recrods_test = df.to_dict('records')
 
 # Initialize an empty list to hold the news objects
 news_objects_list = []
