@@ -7,6 +7,7 @@ class News:
         self._is_tokenized = False
         self._is_sentiment_analyzed = False
 
+
     def run_counter(self):
         from Classes.DataProcessor import Counter
         """
@@ -35,11 +36,23 @@ class News:
     def set_sentiment_analyzed(self, is_sentiment_analyzed: bool):
         self._is_sentiment_analyzed = is_sentiment_analyzed
 
+    def get_headline_tokenized(self):
+        headline_tokenized = self.params.get('headline_tokenized', None)
+        if headline_tokenized is None:
+            raise ValueError('The news is not tokenized yet. Please tokenize the news first.')
+        return headline_tokenized
+
+    def get_content_tokenized(self):
+        content_tokenized = self.params.get('content_tokenized', None)
+        if content_tokenized is None:
+            raise ValueError('The news is not tokenized yet. Please tokenize the news first.')
+        return content_tokenized
+
     def set_params(self, param: dict):
-        self.params = self.params.update(param)
+        self.params.update(param)
 
     def set_sentiment(self, param):
-        self.sentiment = self.sentiment.update(param)
+        self.sentiment.update(param)
     '''
     def to_dict(self):
         # Method to convert the news parameters to dictionary (this is easily JSON serializable)
@@ -51,3 +64,10 @@ class News:
             'is_sentiment_analyzed': self._is_sentiment_analyzed
         }
     '''
+    def __str__(self):
+        return f'News Object: {self.params}'
+
+    def __repr__(self):
+        return f'News Object: {self.params["headline"]}'
+
+

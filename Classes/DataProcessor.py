@@ -67,7 +67,7 @@ class NewsTokenizer:
 
 
 class NewsSentimentAnalysis:
-    def process(self, news: News, sentiment_model: str):
+    def process(self, news: News, sentiment_method: str):
         """
         This function should analyze the sentiment of the news.
         Take the headline setense and content sentence and analyze the sentiment of each sentence.
@@ -75,11 +75,11 @@ class NewsSentimentAnalysis:
         :param sentiment_model: sentiment model to use - just use McDonald for now
         """
 
-        news_headline = news.get_params()['headline']
-        news_content = news.get_params()['content']
+        headline_tokenized = news.get_params()['headline_tokenized']
+        content_tokenized = news.get_params()['content_tokenized']
         sen_model = SentenceSentimentAnalysis()
-        news_headline_sentiment = sen_model.process(news_headline, sen_model)
-        news_content_sentiment = sen_model.process(news_content, sen_model)
+        news_headline_sentiment = sen_model.process(sentence_tokenized = headline_tokenized, sentiment_method = sentiment_method)
+        news_content_sentiment = sen_model.process(sentence_tokenized = content_tokenized, sentiment_method = sentiment_method)
         news.set_sentiment_analyzed(True)
         news.set_sentiment({'headline_sentiment': news_headline_sentiment, 'content_sentiment': news_content_sentiment})
 
